@@ -13,4 +13,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @MapperScan("com.hxk.mall.tiny.mbg.mapper")
 public class MyBatisConfig {
+
 }

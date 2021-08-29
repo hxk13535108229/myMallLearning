@@ -41,7 +41,6 @@ public class CommonPage<T> {
         result.setPageSize(pageInfo.getPageSize());
         result.setTotal(pageInfo.getTotal());
         result.setList(pageInfo.getList());
-        System.out.println(result.toString());
         return result;
     }
 

@@ -2,6 +2,7 @@ package com.hxk.mall.tiny.dao;
 
 import com.hxk.mall.tiny.mbg.model.UmsPermission;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

@@ -13,9 +13,12 @@ import lombok.Data;
 public class CommonResult<T> {
     private long code;
     private String message;
+
+    //返回对应的数据 -- 比如商品信息、权限列表等
     private T data;
 
     protected CommonResult() {
+
     }
 
     protected CommonResult(long code, String message, T data) {
@@ -34,6 +37,7 @@ public class CommonResult<T> {
 
     /**
      * 成功返回结果
+     * @param message 提示信息
      */
     public static <T> CommonResult<T> success(T data,String message){
         return new CommonResult<T>(ResultCode.SUCCESS.getCode(),message,data);

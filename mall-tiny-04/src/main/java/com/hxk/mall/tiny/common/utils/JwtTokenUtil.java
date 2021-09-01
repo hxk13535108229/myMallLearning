@@ -15,18 +15,28 @@ import java.util.Map;
 
 /**
  * @ClassName JwtTokenUtil
- * @Description TODO
+ * @Description 通用的登录验证工具
  * @Author OvO
  * @Date 2021-08-31 10:51
  * @Version 1.0
  **/
 @Component
 public class JwtTokenUtil {
+
+    //使用指定的类JwtTokenUtil初始化日志对象，方便在日志输出的时候，可以打印出日志信息所属的类。
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtTokenUtil.class);
+
+    //用户名
     private static final String CLAIM_KEY_USERNAME = "sub";
+
+    //创建时间
     private static final String CLAIM_KEY_CREATED = "created";
+
+    //JWT加解密使用的密钥
     @Value("${jwt.secret}")
     private String secret;
+
+    //JWT的超期限时间
     @Value("${jwt.expiration}")
     private Long expiration;
 
@@ -34,8 +44,8 @@ public class JwtTokenUtil {
      * 根据负责生成JWT的token
      */
     private String generateToken(Map<String, Object> claims) {
-        return Jwts.builder()
-                .setClaims(claims)
+        return Jwts.builder()//将 JWT 负载设置为 JSON Claims 实例
+                .setClaims(claims)//将JWT载设置为由指定名称/值对填充的JSON Claims实例
                 .setExpiration(generateExpirationDate())
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
@@ -52,7 +62,7 @@ public class JwtTokenUtil {
                     .parseClaimsJws(token)
                     .getBody();
         } catch (Exception e) {
-            LOGGER.info("JWT格式验证失败:{}",token);
+            LOGGER.info("JWT格式验证失败:{}", token);
         }
         return claims;
     }
@@ -71,7 +81,7 @@ public class JwtTokenUtil {
         String username;
         try {
             Claims claims = getClaimsFromToken(token);
-            username =  claims.getSubject();
+            username = claims.getSubject();
         } catch (Exception e) {
             username = null;
         }

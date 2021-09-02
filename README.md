@@ -39,6 +39,12 @@ mybatis generator代码生成器
 
 [lombok 简化对象封装工具](https://projectlombok.org/)
 
+[SpringTask 实现定时任务](https://blog.csdn.net/qq_42640067/article/details/113482798)
+
+[Elasticsearch 分布式、可扩展、实时的搜索与数据分析引擎](https://www.elastic.co/cn/downloads/past-releases/elasticsearch-6-2-2)
+
+[Kibana Elasticsearch的客户端](https://artifacts.elastic.co/downloads/kibana/kibana-6.2.2-windows-x86_64.zip)
+
 ### 现在实现的功能
 #### 商品模块
 商品管理--CRUD
